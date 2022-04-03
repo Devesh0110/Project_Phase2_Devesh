@@ -38,13 +38,13 @@ public class viewplaces extends HttpServlet{
 			List<flight> obj = session.createQuery("from flight").list();
 			
 			//show data as table.
-			out.print("<h1> List of places registered as sources and destinations :- </h1>");
+			out.print("<center><h1> List of places registered as Sources and Destinations :- </h1></center>");
 			
 			out.print("<style> table,td,th {"
 					+ "border:2px solid red;"
 					+ "padding: 10px; "
 					+ "}</style>");
-			out.print("<table >");
+			out.print("<center><table>");
 			out.print("<tr>");
 				out.print("<th> ID</th>");
 				out.print("<th> Source Place</th>");
@@ -58,7 +58,7 @@ public class viewplaces extends HttpServlet{
 				out.print("<td>"+p.getDestination()+"</td>");
 				out.print("</tr>");
 			}
-			out.print("</table>");
+			out.print("</table></center>");
 			// 3. close session
 			session.close();
 		} catch (Exception e) {

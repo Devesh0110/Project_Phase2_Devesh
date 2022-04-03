@@ -19,8 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import entityclasses.*;
 import util.HibernateSessionUtil;
@@ -55,17 +57,26 @@ public class payment extends HttpServlet{
 			for(user p : obj) {
 				if(p.getPassword().equals(password)) {
 					//update user balance
-//					int val=(Integer)ss.getAttribute("idvalue");
-//					for(flight x:obj2) {
-//						if(x.getId()==val){
-//							temp=x.getPrice();
-//						}
-//						int userid=p.getId();
-//						tempf=p.getBalance()-temp;
+					int val=(Integer)ss.getAttribute("idvalue");
+					for(flight x:obj2) {
+						if(x.getId()==val){
+							temp=x.getPrice();
+						}
+					}
+						int userid=p.getId();
+						tempf=p.getBalance()-temp;
 //					session.createSQLQuery("UPDATE user_data" + 
 //							"SET balance="+tempf+ 
 //							"WHERE id="+userid).executeUpdate();
 //					}
+					Transaction tx=session.beginTransaction();  
+					Query q=session.createQuery("update user set balance=:n where id=:i");  
+					q.setParameter("n",tempf);  
+					q.setParameter("i",userid);  
+					  
+					int status=q.executeUpdate();  
+					 
+					tx.commit();  
 					ss.setAttribute("usersid", p.getId());
 					response.sendRedirect("ticket");
 				}
