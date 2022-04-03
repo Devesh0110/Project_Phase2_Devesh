@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="entityclasses.user" table="user_data">
+		<id name="id" type="int" column="id">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" type="string" column="name" ></property>
+		<property name="password" type="string" column="password" ></property>
+		<property name="balance" type="double" column="balance" ></property>
+	</class>
+	
+	<class name="entityclasses.admin" table="admin_data">
+		<id name="id" type="int" column="id">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" type="string" column="name" ></property>
+		<property name="password" type="string" column="password" ></property>
+	</class>
+	
+	
+	<class name="entityclasses.flight" table="flight_data">
+		<id name="id" type="int" column="id">
+			<generator class="increment"></generator>
+		</id>
+		
+		<property name="source" type="string" column="source" ></property>
+		<property name="destination" type="string" column="destination" ></property>
+		<property name="airline" type="string" column="airline" ></property>
+		<property name="price" type="double" column="fare" ></property>
+		<property name="availabledays" type="string" column="availabledays" ></property>
+	</class>
+	
+	
+	
+	
+</hibernate-mapping>

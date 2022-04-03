@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Add Flights</h1>
+	<form method="post" action="addflightdata" >
+	<fieldset>
+		<legend>Destination Information</legend>
+		Source: <input type="text" name="source" id="source"> <br><br>
+		Destination: <input type="text" name="destination" id="destination"> <br><br>
+	</fieldset>	
+	<fieldset>
+		<legend>Airline name</legend>
+		Name of Airline : <input type="text" name="airline" id="airline"> <br><br>
+	</fieldset>
+	
+	<fieldset>
+		<legend>Flight Details</legend>
+
+		Ticket Price : <input type="text" name="price" id="price"> <br><br>
+		Enter Available Days (Eg: Sunday,Monday) : <input type="text" name="availabledays" id="availabledays"><br><br>
+		
+	</fieldset>	
+	<input type="submit"  value="Add Flight To Listing">
+	</form>
+</body>
+</html>
