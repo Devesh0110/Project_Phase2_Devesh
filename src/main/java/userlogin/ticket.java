@@ -57,11 +57,13 @@ public class ticket extends HttpServlet{
 			out.print("<html><body>");
 			out.print("<center><h1 style=\"color:green\">TICKET CONFIRMED</h1>"
 					+ "</center>\n" + 
-					"  <img style=\"border-radius: 5px 5px 0 0;width:50%;margin-left:200px;\" src=\"https://media.istockphoto.com/photos/airbus-a320-aeroplane-picture-id171264813?k=20&m=171264813&s=612x612&w=0&h=oyM2EKEbauYWxiHH1j0xiHVdKkYLpdXJXnOuRT9P2_w=\" alt=\"Avatar\">\n" + 
+					"  <img style=\"border-radius: 5px 5px 0 0;width:40%;margin-left:250px;\" src=\"https://media.istockphoto.com/photos/airbus-a320-aeroplane-picture-id171264813?k=20&m=171264813&s=612x612&w=0&h=oyM2EKEbauYWxiHH1j0xiHVdKkYLpdXJXnOuRT9P2_w=\" alt=\"Avatar\">\n" + 
 					"  <div style=\"padding: 2px 16px;\">\n");
 			
 			out.print("<center><h4><b> BOOKED BY - "+n+"</b></h4> \n" + 
-			"<h4><b> USER ID - "+ss.getAttribute("usersid")+"</b></h4>"+
+			"<h4><b> BOOKING ID - "+ss.getAttribute("usersid")+"</b></h4>"+
+			"<h4><b> AIRLINES - "+ss.getAttribute("flightname")+"</b></h4>"+
+					"<h4 style='color:green;'><b> From - "+ss.getAttribute("sourceplace")+" ||  To - "+ss.getAttribute("destinationplace")+"</b></h4>"+
 					"    <p>Thank you for choosing us!</p> </center>\n" + 
 					"  </div>\n" + 
 					"</div>\n" + 

@@ -58,9 +58,10 @@ public class payment extends HttpServlet{
 				if(p.getPassword().equals(password)) {
 					//update user balance
 					int val=(Integer)ss.getAttribute("idvalue");
+					int price=Integer.parseInt((String) ss.getAttribute("numberofpeople"));
 					for(flight x:obj2) {
 						if(x.getId()==val){
-							temp=x.getPrice();
+							temp=(double)x.getPrice()*price; //if user has booked tickets for 2 people then 2*ticketprice
 						}
 					}
 						int userid=p.getId();
@@ -69,6 +70,11 @@ public class payment extends HttpServlet{
 //							"SET balance="+tempf+ 
 //							"WHERE id="+userid).executeUpdate();
 //					}
+					//insufficient balance in account
+						if(tempf<0) {
+							out.write("<h3 style='color:red')>Insufficient Account Balance !</h3>");
+						}
+						else {
 					Transaction tx=session.beginTransaction();  
 					Query q=session.createQuery("update user set balance=:n where id=:i");  
 					q.setParameter("n",tempf);  
@@ -79,6 +85,7 @@ public class payment extends HttpServlet{
 					tx.commit();  
 					ss.setAttribute("usersid", p.getId());
 					response.sendRedirect("ticket");
+						}
 				}
 			}
 			

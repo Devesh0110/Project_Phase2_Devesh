@@ -39,7 +39,7 @@ public class availableflights extends HttpServlet{
 		String source=request.getParameter("source");
 		String destination=request.getParameter("destination");
 		String userdate=request.getParameter("dateoftravel");
-		
+		String no_of_people=request.getParameter("numberofpersons");
 		//my logic to check date is which day
 		  
 
@@ -123,6 +123,7 @@ public class availableflights extends HttpServlet{
 				out.print("<h4 style='color:red'>No Flights for selected date</h4>");
 			}
 			// 3. close session
+			ss.setAttribute("numberofpeople", no_of_people);
 			session.close();
 		} catch (Exception e) {
 			out.print("<h3 style='color:red'> Hibernate session is failed ! "+e+"</h3>");

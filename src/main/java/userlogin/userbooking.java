@@ -53,6 +53,9 @@ public class userbooking extends HttpServlet{
 			for(flight p : obj) {
 				if(p.getId()==flightnumber) {
 					ss.setAttribute("idvalue", p.getId());
+					ss.setAttribute("flightname",p.getAirline());
+					ss.setAttribute("sourceplace", p.getSource());
+					ss.setAttribute("destinationplace", p.getDestination());
 					response.sendRedirect("payment.html");
 				}
 			}
